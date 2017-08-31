@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic','ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -53,4 +53,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+.controller('DashboardCtrl', function($scope,$cordovaInAppBrowser) {
+  $scope.data = {
+    "date" : "08/30/2017",
+    "confirmation" : "Confirmed",
+    "text" : "You have worked on Hackerrannk problems OR know about it - here is your chance to interact with Hackerrank CEO: Ask Me Anything online session with Vivek Ravisankar. Post your questions @ http://bit.ly/ama-vivek"
+  }
+  $scope.registration = function(){
+    console.log("Reached here");
+    var ref = $cordovaInAppBrowser.open('http://bit.ly/prof-dev-utd','_blank')
+  }
 });
